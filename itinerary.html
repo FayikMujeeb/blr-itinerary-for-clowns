@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>♡ The Itinerary ♡</title>
+<style>
+/* ---- inlined shared stylesheet ---- */
+/* ============================================
+   ZARA'S BANGALORE — shared Y2K / 2000s-2010s pop stylesheet
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Sora:wght@400;600;700;800&display=swap');
+
+:root{
+  --hot-pink:#ff2e9a;
+  --bubblegum:#ff7bd5;
+  --baby-pink:#ffd6ef;
+  --cream:#fff0fb;
+  --lilac:#c89bff;
+  --sky:#9be7ff;
+  --lime:#c6ff5e;
+  --ink:#3a0b35;
+  --deep:#7a0f5c;
+  --white:#ffffff;
+  --shadow:6px 6px 0 rgba(58,11,53,.18);
+  --shadow-hard:5px 5px 0 var(--ink);
+  --radius:22px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255,123,213,.35), transparent 40%),
+    radial-gradient(circle at 88% 8%, rgba(200,155,255,.32), transparent 38%),
+    radial-gradient(circle at 75% 90%, rgba(155,231,255,.30), transparent 42%),
+    linear-gradient(160deg, var(--cream), var(--baby-pink));
+  background-attachment:fixed;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* sparkle/star texture overlay */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.9), transparent),
+    radial-gradient(2px 2px at 70% 60%, rgba(255,255,255,.8), transparent),
+    radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,.7), transparent),
+    radial-gradient(2px 2px at 90% 40%, rgba(255,255,255,.85), transparent),
+    radial-gradient(1.5px 1.5px at 15% 70%, rgba(255,255,255,.7), transparent);
+  background-size:300px 300px,250px 250px,200px 200px,350px 350px,280px 280px;
+  pointer-events:none;
+  z-index:0;
+  opacity:.6;
+  animation:twinkle 6s ease-in-out infinite alternate;
+}
+@keyframes twinkle{from{opacity:.35}to{opacity:.75}}
+
+/* ---------- typography ---------- */
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.02;letter-spacing:-.02em;}
+
+.display{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;
+  padding:14px 22px;
+  background:rgba(255,46,154,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:3px solid var(--ink);
+}
+.nav .brand{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:800;font-size:1.15rem;color:var(--white);
+  text-transform:uppercase;letter-spacing:.02em;
+  display:flex;align-items:center;gap:8px;text-decoration:none;
+  text-shadow:2px 2px 0 var(--ink);
+}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap;}
+.nav-links a{
+  font-family:'Sora',sans-serif;font-weight:700;font-size:.82rem;
+  text-decoration:none;color:var(--ink);
+  background:var(--baby-pink);
+  padding:8px 14px;border-radius:999px;
+  border:2.5px solid var(--ink);
+  transition:transform .15s ease, background .15s ease;
+  white-space:nowrap;
+}
+.nav-links a:hover{transform:translateY(-2px) rotate(-2deg);background:var(--lime);}
+.nav-links a.active{background:var(--white);}
+
+/* ---------- layout ---------- */
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:34px 22px 90px;}
+
+.eyebrow{
+  display:inline-block;
+  font-family:'Sora',sans-serif;font-weight:800;
+  font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--white);background:var(--lilac);
+  padding:6px 14px;border-radius:999px;border:2.5px solid var(--ink);
+  box-shadow:var(--shadow-hard);
+  transform:rotate(-2deg);
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  font-family:'Sora',sans-serif;font-weight:800;
+  font-size:.95rem;cursor:pointer;
+  background:var(--hot-pink);color:var(--white);
+  border:3px solid var(--ink);border-radius:999px;
+  padding:14px 26px;
+  box-shadow:var(--shadow-hard);
+  transition:transform .15s ease, box-shadow .15s ease;
+  text-decoration:none;display:inline-block;
+  text-transform:uppercase;letter-spacing:.03em;
+}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink);}
+.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);}
+.btn.lime{background:var(--lime);color:var(--ink);}
+.btn.sky{background:var(--sky);color:var(--ink);}
+
+/* ---------- cards ---------- */
+.card{
+  background:var(--white);
+  border:3px solid var(--ink);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-hard);
+  padding:22px;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{transform:translate(-3px,-3px) rotate(-.6deg);box-shadow:9px 9px 0 var(--ink);}
+
+.tag{
+  display:inline-block;font-family:'Sora',sans-serif;font-weight:700;
+  font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px;border:2px solid var(--ink);
+  background:var(--baby-pink);color:var(--deep);margin:3px 3px 0 0;
+}
+.tag.area{background:var(--sky);}
+.tag.food{background:var(--bubblegum);color:var(--white);}
+.tag.fun{background:var(--lime);}
+.tag.culture{background:var(--lilac);color:var(--white);}
+.tag.star{background:var(--white);}
+
+/* ---------- footer ---------- */
+.foot{
+  position:relative;z-index:1;
+  text-align:center;padding:30px 20px 50px;
+  font-family:'Sora',sans-serif;font-weight:600;font-size:.82rem;color:var(--deep);
+}
+.foot .heart{color:var(--hot-pink);}
+
+/* marquee */
+.marquee{
+  overflow:hidden;white-space:nowrap;
+  background:var(--ink);color:var(--baby-pink);
+  border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);
+  padding:10px 0;font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.9rem;
+}
+.marquee span{display:inline-block;padding-left:100%;animation:scroll 22s linear infinite;}
+@keyframes scroll{to{transform:translateX(-100%);}}
+
+/* utility */
+.center{text-align:center;}
+.grid{display:grid;gap:20px;}
+@media(min-width:640px){.grid.two{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:880px){.grid.three{grid-template-columns:repeat(3,1fr);}}
+
+</style>
+<style>
+.page-head{text-align:center;padding:20px 0 24px;}
+.page-head h1{font-size:clamp(2.4rem,8vw,4.6rem);color:var(--hot-pink);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;text-shadow:5px 5px 0 var(--ink);}
+.page-head p{font-family:'Sora',sans-serif;font-weight:600;color:var(--deep);margin-top:10px;}
+
+.day{margin-bottom:26px;position:relative;}
+.day-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap;}
+.daynum{
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+  background:var(--hot-pink);color:#fff;border:3px solid var(--ink);
+  border-radius:16px;padding:8px 14px;font-size:1rem;box-shadow:var(--shadow-hard);
+  white-space:nowrap;
+}
+.daynum .date{display:block;font-size:.72rem;font-weight:600;opacity:.9;}
+.day-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.5rem;color:var(--deep);text-transform:uppercase;}
+.pace{font-family:'Sora',sans-serif;font-weight:700;font-size:.7rem;padding:4px 10px;border-radius:999px;border:2px solid var(--ink);text-transform:uppercase;letter-spacing:.05em;}
+.pace.chill{background:var(--sky);}
+.pace.packed{background:var(--bubblegum);color:#fff;}
+.pace.mid{background:var(--lime);}
+
+.day .card{padding:20px 22px;}
+.stops{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.stops li{display:flex;gap:12px;align-items:flex-start;}
+.stops .time{font-family:'Sora',sans-serif;font-weight:800;font-size:.78rem;color:var(--hot-pink);min-width:70px;padding-top:2px;}
+.stops .what b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.02rem;color:var(--ink);}
+.stops .what span{display:block;font-size:.86rem;font-weight:500;color:var(--deep);margin-top:2px;line-height:1.4;}
+.tip{margin-top:14px;font-family:'Sora',sans-serif;font-weight:600;font-size:.8rem;background:var(--cream);border:2px dashed var(--lilac);border-radius:12px;padding:10px 12px;color:var(--deep);}
+.mysore-cta{display:inline-block;margin-top:8px;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="index.html">✦ zara's blr ✦</a>
+  <div class="nav-links">
+    <a href="index.html">home</a>
+    <a href="itinerary.html" class="active">itinerary</a>
+    <a href="places.html">places</a>
+    <a href="mysore.html">mysore</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-head">
+    <span class="eyebrow">✦ june 6 → june 15 ✦</span>
+    <h1 class="display">The Itinerary</h1>
+    <p>10 days, clustered by area so we're never stuck in traffic. Mix of chill ✿ and packed ♡</p>
+  </div>
+  <div id="days"></div>
+
+  <div class="tip" style="text-align:center;border-style:solid;">
+    ⟡ Heads up on Mondays: <b>Turtle Matcha, On The Jungle Floor, MAP, Champaca</b> + Cubbon's attractions are closed Mondays — so Monday is a Whitefield/Koramangala/arcade day.
+  </div>
+</div>
+
+<div class="foot">made with <span class="heart">♥</span> for zara & the girls · paint the town pink</div>
+
+<script>
+/* ---- inlined places data ---- */
+// ============================================
+// ZARA'S BANGALORE — all the places, one source of truth
+// ============================================
+const PLACES = [
+  // ---- cafés / food ----
+  { name:"On The Jungle Floor", area:"Indiranagar", type:"vibe", rating:4.8, emoji:"🎧",
+    blurb:"Tiny, dreamy vinyl store — crate-dig through gorgeous record sleeves. The highest-rated spot on the whole list.",
+    note:"Closed Mondays · 12–8 PM", maps:"https://maps.google.com/?q=On+The+Jungle+Floor+Indiranagar" },
+  { name:"Conçu", area:"Indiranagar", type:"food", rating:4.2, emoji:"🍰",
+    blurb:"European-style café over two floors. Come for the opera cake, tiramisu & cheesecakes.",
+    note:"Opens 8 AM weekends", maps:"https://maps.google.com/?q=Con%C3%A7u+Indiranagar" },
+  { name:"Kopitiam Lah", area:"Indiranagar", type:"food", rating:4.3, emoji:"🍜",
+    blurb:"Posh, pretty Malaysian spot. Rendang sandwich + kaya toast pudding are the move.",
+    note:"Dinner from 7 PM · book ahead", maps:"https://maps.google.com/?q=Kopitiam+Lah+Indiranagar" },
+  { name:"Turtle Matcha", area:"Indiranagar", type:"food", rating:4.7, emoji:"🍵",
+    blurb:"\"The cutest vibe\" + the best matcha in the city. Get the caramel popcorn matcha.",
+    note:"Closed Mondays · 12–10 PM", maps:"https://maps.google.com/?q=Turtle+Matcha+Indiranagar" },
+  { name:"Café Pink Pyjamas", area:"Indiranagar", type:"food", rating:4.4, emoji:"🎀",
+    blurb:"A literal pastel wonderland — fairy lights, whimsical décor, golden-hour everything. Peak theme energy.",
+    note:"Best in daylight", maps:"https://maps.google.com/?q=Cafe+Pink+Pyjamas+Bangalore" },
+  { name:"Lavonne Café & Patisserie", area:"Indiranagar", type:"food", rating:4.4, emoji:"🧁",
+    blurb:"Dessert heaven — pastel tones, perfectly plated pastries & macarons.",
+    note:"", maps:"https://maps.google.com/?q=Lavonne+Cafe+Indiranagar" },
+  { name:"Amour", area:"Indiranagar", type:"food", rating:4.3, emoji:"🗼",
+    blurb:"Parisian boulangerie cosplay — pink & teal, macaron tower, mini Eiffel Tower. Croissants + coffee.",
+    note:"Go for daytime light", maps:"https://maps.google.com/?q=Amour+cafe+Indiranagar" },
+  { name:"Lazy Suzy", area:"Indiranagar", type:"food", rating:4.3, emoji:"🌼",
+    blurb:"Sunny yellow Pondicherry vibe with that famous painted-plates wall. Breakfast star.",
+    note:"", maps:"https://maps.google.com/?q=Lazy+Suzy+Indiranagar" },
+  { name:"Teal Door Café", area:"Indiranagar", type:"food", rating:4.3, emoji:"🚪",
+    blurb:"Teal everything, tucked under a giant tree. Especially dreamy when it rains.",
+    note:"", maps:"https://maps.google.com/?q=Teal+Door+Cafe+Indiranagar" },
+  { name:"Travellers Bungalow", area:"Indiranagar", type:"food", rating:4.2, emoji:"🌍",
+    blurb:"Retro/vintage — gramophones, globes, photogenic cocktails. Every corner is a shot.",
+    note:"", maps:"https://maps.google.com/?q=Travellers+Bungalow+Indiranagar" },
+  { name:"Dyu Art Café", area:"Koramangala", type:"food", rating:4.4, emoji:"🎨",
+    blurb:"Kerala-style bungalow, open courtyard, red-oxide floors, walls double as an art gallery. So photogenic.",
+    note:"30-min weekend wait · go AM", maps:"https://maps.google.com/?q=Dyu+Art+Cafe+Koramangala" },
+  { name:"Dialogues Café", area:"Koramangala", type:"vibe", rating:4.3, emoji:"📖",
+    blurb:"Whimsical book café, pay-by-the-hour, dreamy bibliophile solitude.",
+    note:"", maps:"https://maps.google.com/?q=Dialogues+Cafe+Koramangala" },
+  { name:"Bistro Oui", area:"Koramangala", type:"food", rating:4.2, emoji:"🥐",
+    blurb:"Three floors, each a different theme — rooftop feels like a European street.",
+    note:"", maps:"https://maps.google.com/?q=Bistro+Oui+Koramangala" },
+  { name:"Tea Villa Café", area:"Jayanagar", type:"food", rating:4.2, emoji:"🫖",
+    blurb:"Teal & plum, \"cool aunt's living room\" energy. Gourmet chai + gossip.",
+    note:"", maps:"https://maps.google.com/?q=Tea+Villa+Cafe+Jayanagar" },
+  { name:"The White Room", area:"Church Street", type:"food", rating:4.2, emoji:"🤍",
+    blurb:"All-white British-Raj vibe with greenery — that clean colonial photo aesthetic.",
+    note:"", maps:"https://maps.google.com/?q=The+White+Room+Church+Street+Bangalore" },
+  { name:"Maverick & Farmer Coffee", area:"Ulsoor", type:"food", rating:4.4, emoji:"☕",
+    blurb:"For the serious-coffee-but-make-it-stylish moment.",
+    note:"", maps:"https://maps.google.com/?q=Maverick+and+Farmer+Coffee+Ulsoor" },
+  { name:"Champaca Bookstore", area:"Vasanth Nagar", type:"vibe", rating:4.5, emoji:"🌿",
+    blurb:"Green book-café in a quiet cul-de-sac, big reading window. Super cute, super calm.",
+    note:"Closed Mondays · 10–7", maps:"https://maps.google.com/?q=Champaca+Bookstore+Vasanth+Nagar" },
+  { name:"Lick", area:"Indiranagar", type:"food", rating:4.3, emoji:"🍦",
+    blurb:"Ice-cream stop — easy sweet add-on between café hops.",
+    note:"", maps:"https://maps.google.com/?q=Lick+ice+cream+Bangalore" },
+  { name:"Milano", area:"Koramangala", type:"food", rating:4.2, emoji:"🍨",
+    blurb:"Gelato fix. Quick, pretty, delicious.",
+    note:"", maps:"https://maps.google.com/?q=Milano+ice+cream+Bangalore" },
+  { name:"ChayaChyll", area:"Whitefield", type:"food", rating:4.7, emoji:"🫐",
+    blurb:"Cozy near-home spot — blue-pea milk tea + matcha, lovely owners. Walkable chill.",
+    note:"Near your stay", maps:"https://maps.google.com/?q=ChayaChyll+Whitefield" },
+  { name:"Paper & Pie", area:"Whitefield", type:"food", rating:4.3, emoji:"🥧",
+    blurb:"Calm aesthetic café — good for a relaxed work-cation morning.",
+    note:"Near your stay", maps:"https://maps.google.com/?q=Paper+and+Pie+Whitefield" },
+
+  // ---- culture ----
+  { name:"MAP — Museum of Art & Photography", area:"Cubbon area", type:"culture", rating:4.5, emoji:"🖼️",
+    blurb:"Super interactive, holographic show, in-house café & a cat gallery. Plan 3–4 hrs.",
+    note:"Closed Mon · free Tuesdays", maps:"https://maps.google.com/?q=Museum+of+Art+and+Photography+Bangalore" },
+  { name:"Government Museum & Venkatappa Gallery", area:"Cubbon area", type:"culture", rating:4.1, emoji:"🏛️",
+    blurb:"The museum near Mount Carmel — old-school art & artefacts, right by MAP & Cubbon.",
+    note:"Closed Mondays", maps:"https://maps.google.com/?q=Government+Museum+Kasturba+Road+Bangalore" },
+  { name:"Cubbon Park", area:"Cubbon area", type:"culture", rating:4.4, emoji:"🌳",
+    blurb:"Huge green heart of the city — statues, the State Library, dreamy photo paths.",
+    note:"Attractions closed Mon", maps:"https://maps.google.com/?q=Cubbon+Park+Bangalore" },
+  { name:"Lalbagh + Glass House", area:"South BLR", type:"culture", rating:4.4, emoji:"🌸",
+    blurb:"Rose garden, lotus pond, the Crystal-Palace-style Glass House & sunset over the lake.",
+    note:"₹30 entry · go early", maps:"https://maps.google.com/?q=Lalbagh+Botanical+Garden+Bangalore" },
+
+  // ---- fun / activities ----
+  { name:"Bistro Claytopia", area:"Koramangala", type:"fun", rating:4.2, emoji:"🏺",
+    blurb:"Paint your own ceramics in a leafy garden café. Therapeutic group activity.",
+    note:"Piece fired in ~10 days", maps:"https://maps.google.com/?q=Bistro+Claytopia+Koramangala" },
+  { name:"Dave & Buster's", area:"Koramangala", type:"fun", rating:4.7, emoji:"🎮",
+    blurb:"75+ arcade games, bowling, darts. People stay 7 hours — you've been warned.",
+    note:"12 PM–12 AM", maps:"https://maps.google.com/?q=Dave+and+Busters+Bangalore" },
+  { name:"PLaY Arena", area:"Sarjapur", type:"fun", rating:4.5, emoji:"🏎️",
+    blurb:"Huge — go-karting, laser tag, bowling, VR racing. Big-group energy.",
+    note:"10 AM–11 PM", maps:"https://maps.google.com/?q=Play+Arena+Sarjapur" },
+  { name:"Breakout Escape Rooms", area:"Koramangala", type:"fun", rating:4.7, emoji:"🔍",
+    blurb:"#1 escape rooms in the city — there's a murder-mystery themed room.",
+    note:"Book ahead", maps:"https://maps.google.com/?q=Breakout+Escape+Rooms+Koramangala" },
+  { name:"Escape Room Koramangala", area:"Koramangala", type:"fun", rating:4.6, emoji:"🗝️",
+    blurb:"Ex–Mystery Junkies. \"Ruins of Hampi\" is great for first-timers.",
+    note:"Book ahead", maps:"https://maps.google.com/?q=Escape+Room+Koramangala" },
+];
+
+</script>
+<script>
+if(sessionStorage.getItem("zara_in")!=="yes"){ window.location.href="index.html"; }
+
+// June 6 2026 is a Saturday
+const days=[
+  { d:6, wd:"Sat", title:"Land & Settle In", pace:"chill", paceLabel:"chill",
+    stops:[
+      {t:"Afternoon", b:"Arrive + drop bags in Whitefield", s:"Settle in, freshen up, no rush."},
+      {t:"5:00 PM", b:"ChayaChyll ☕", s:"Walkable near-home café. Blue-pea milk tea + matcha to kick off the trip."},
+      {t:"8:00 PM", b:"Easy dinner near the stay", s:"Keep it low-key — big days ahead."}
+    ], tip:"Pure landing-day energy. Unpack, nap, vibe." },
+
+  { d:7, wd:"Sun", title:"Indiranagar Café Crawl", pace:"packed", paceLabel:"packed",
+    stops:[
+      {t:"10:30 AM", b:"Conçu 🍰", s:"Brunch + opera cake. Sunday it opens at 8 so we're golden."},
+      {t:"12:30 PM", b:"On The Jungle Floor 🎧", s:"Vinyl digging — the 4.8★ gem. Fit pics encouraged."},
+      {t:"2:00 PM", b:"Turtle Matcha 🍵", s:"Caramel popcorn matcha. The cutest stop of the day."},
+      {t:"4:00 PM", b:"Amour 🗼 + Lick 🍦", s:"Macaron tower photos, then an ice-cream chaser."},
+      {t:"7:30 PM", b:"Kopitiam Lah 🍜", s:"Malaysian dinner — booked ahead for 7 PM+."}
+    ], tip:"Everything today is walkable-ish within Indiranagar. Comfy shoes!" },
+
+  { d:8, wd:"Mon", title:"Whitefield + Arcade Day", pace:"mid", paceLabel:"easy-ish",
+    stops:[
+      {t:"10:00 AM", b:"Paper & Pie 🥧", s:"Slow near-home morning (lots of spots are closed Mondays)."},
+      {t:"1:00 PM", b:"Dave & Buster's 🎮", s:"Koramangala — 75+ arcade games, bowling, darts. Stay as long as you want."},
+      {t:"Evening", b:"Milano 🍨 gelato", s:"Sweet wind-down on the way back."}
+    ], tip:"Monday = closures everywhere, so we lean into games + Whitefield instead." },
+
+  { d:9, wd:"Tue", title:"Culture & Cubbon", pace:"mid", paceLabel:"balanced",
+    stops:[
+      {t:"10:00 AM", b:"MAP Museum 🖼️", s:"FREE on Tuesdays! Interactive galleries, the cat gallery, holographic show. 3 hrs easy."},
+      {t:"1:30 PM", b:"Champaca Bookstore 🌿", s:"Lunch + reading-window photos in the quiet cul-de-sac nearby."},
+      {t:"4:00 PM", b:"Cubbon Park 🌳", s:"Golden-hour walk, statues + library backdrops."},
+      {t:"5:30 PM", b:"Govt Museum / Venkatappa 🏛️", s:"Quick artefact stop right next door (near Mount Carmel)."}
+    ], tip:"This whole day is one tight cluster around Kasturba Rd — barely any travel." },
+
+  { d:10, wd:"Wed", title:"✦ MYSORE DAY TRIP ✦", pace:"packed", paceLabel:"big day", mysore:true,
+    stops:[
+      {t:"6:30 AM", b:"Depart Whitefield", s:"Early start (~140 km). Cab or train."},
+      {t:"10:00 AM", b:"Mysore Palace 🏰", s:"The main event — Indo-Saracenic grandeur."},
+      {t:"12:30 PM", b:"Lunch + Devaraja Market", s:"South Indian feast + silk & sandalwood browsing."},
+      {t:"2:00 PM", b:"Chamundi Hills ⛰️", s:"Temple + panoramic city views + the giant Nandi."},
+      {t:"4:30 PM", b:"St. Philomena's + Brindavan Gardens ⛲", s:"Neo-gothic church, then the evening musical fountain."}
+    ], tip:"It's a long one — see the full Mysore page for the breakdown." },
+
+  { d:11, wd:"Thu", title:"Recovery + Pretty Cafés", pace:"chill", paceLabel:"chill",
+    stops:[
+      {t:"11:00 AM", b:"Lazy Suzy 🌼", s:"Slow breakfast at the painted-plates wall. Recover from Mysore."},
+      {t:"1:30 PM", b:"Teal Door Café 🚪", s:"Teal-everything photos under the big tree."},
+      {t:"5:00 PM", b:"Maverick & Farmer ☕", s:"Stylish coffee, low-key afternoon."}
+    ], tip:"Deliberately light after the big day. Float around, nap, recharge." },
+
+  { d:12, wd:"Fri", title:"Koramangala Arts & Crafts", pace:"mid", paceLabel:"balanced",
+    stops:[
+      {t:"10:30 AM", b:"Dyu Art Café 🎨", s:"Bungalow + courtyard + gallery walls. Go AM to skip the wait."},
+      {t:"1:00 PM", b:"Bistro Claytopia 🏺", s:"Paint your own ceramics over lunch (they ship/hold the fired piece)."},
+      {t:"5:00 PM", b:"Dialogues 📖 or Bistro Oui 🥐", s:"Book-café solitude, or 3-floor European vibes."}
+    ], tip:"Creative day — bring home a hand-painted souvenir 🏺" },
+
+  { d:13, wd:"Sat", title:"Gardens & Golden Hour", pace:"chill", paceLabel:"chill",
+    stops:[
+      {t:"4:00 PM", b:"Lalbagh + Glass House 🌸", s:"Rose garden, lotus pond, Glass House. ₹30 entry."},
+      {t:"6:15 PM", b:"Sunset over the lake", s:"The dreamy golden-hour photo moment of the trip."},
+      {t:"8:00 PM", b:"Tea Villa Café 🫖", s:"Teal & plum 'cool aunt' vibes, gourmet chai to end the night."}
+    ], tip:"Go late afternoon to dodge the heat and catch the sunset." },
+
+  { d:14, wd:"Sun", title:"Mystery & Mayhem", pace:"packed", paceLabel:"packed",
+    stops:[
+      {t:"12:00 PM", b:"The White Room 🤍", s:"All-white Church Street brunch — clean colonial photos."},
+      {t:"3:00 PM", b:"Breakout Escape Rooms 🔍", s:"The murder-mystery room. Book ahead!"},
+      {t:"6:00 PM", b:"PLaY Arena 🏎️", s:"Go-karting, laser tag, VR — full big-group chaos to close out."}
+    ], tip:"Adrenaline day. If PLaY feels far, swap in Escape Room Koramangala instead." },
+
+  { d:15, wd:"Mon", title:"Last Treats & Goodbyes", pace:"chill", paceLabel:"chill",
+    stops:[
+      {t:"10:30 AM", b:"Café Pink Pyjamas 🎀", s:"One final pastel-wonderland photo dump."},
+      {t:"1:00 PM", b:"Lavonne 🧁 — last desserts", s:"Macarons + a sweet sendoff."},
+      {t:"Afternoon", b:"Pack up + head out ♡", s:"Tearful goodbye to the pink city era."}
+    ], tip:"It's a Monday so we keep it to cafés that are open. Bittersweet finale 💕" }
+];
+
+const wrap=document.getElementById("days");
+wrap.innerHTML = days.map(day=>`
+  <div class="day">
+    <div class="day-head">
+      <div class="daynum">Day ${day.d-5}<span class="date">${day.wd} · Jun ${day.d}</span></div>
+      <div class="day-title">${day.title}</div>
+      <span class="pace ${day.pace}">${day.paceLabel}</span>
+    </div>
+    <div class="card">
+      <ul class="stops">
+        ${day.stops.map(s=>`<li><span class="time">${s.t}</span><span class="what"><b>${s.b}</b><span>${s.s}</span></span></li>`).join("")}
+      </ul>
+      ${day.tip?`<div class="tip">⟡ ${day.tip}</div>`:""}
+      ${day.mysore?`<a class="btn sky mysore-cta" href="mysore.html">full mysore plan →</a>`:""}
+    </div>
+  </div>`).join("");
+</script>
+</body>
+</html>
